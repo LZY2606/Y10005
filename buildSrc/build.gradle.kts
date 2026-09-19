@@ -16,6 +16,7 @@
 
 */
 
+import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -27,10 +28,12 @@ repositories {
     maven("https://plugins.gradle.org/m2/")
 }
 
+val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
 dependencies {
-    implementation(group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version = "7.2.1")
-    implementation(group = "io.github.gradle-nexus", name = "publish-plugin", version = "2.0.0")
-    implementation(group = "org.ajoberstar.reckon", name = "reckon-gradle", version = "1.0.1")
+    implementation(versionCatalog.findLibrary("spotless-plugin-gradle").get())
+    implementation(versionCatalog.findLibrary("publish-plugin").get())
+    implementation(versionCatalog.findLibrary("reckon-gradle").get())
 }
 
 java {
