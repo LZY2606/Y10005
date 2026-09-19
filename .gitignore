@@ -1,0 +1,61 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Gradle template
+.gradle
+
+build/
+!buildSrc/src/main/kotlin/com/charleskorn/kaml/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+### IntelliJ
+/.idea/
+out
+*.iml
+
+**/.kotlin/
+
+# --- 依赖与构建产物（不进交付快照）---
+node_modules/
+bower_components/
+.pnp.*
+dist/
+out/
+target/
+.next/
+.nuxt/
+.svelte-kit/
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+vendor/bundle/
+Pods/
+.gradle/
+.cargo/
+.DS_Store
+.env
+.env.*
+*.log
+coverage/
+.coverage
+.nyc_output/
+.cache/
+.parcel-cache/
+.vite/
+.turbo/
+*.tsbuildinfo
