@@ -1,0 +1,27 @@
+[versions]
+kotlin = "2.2.21"
+kotlinx-serialization = "1.9.0"
+kotlinx-coroutines = "1.10.2"
+snakeyaml-engine-kmp = "4.0.1"
+okio = "3.16.4"
+kotest = "6.0.4"
+ksp = "2.3.3"
+spotless = "7.2.1"
+nexus-publish = "2.0.0"
+reckon = "1.0.1"
+
+[libraries]
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+snakeyaml-engine-kmp = { group = "it.krzeminski", name = "snakeyaml-engine-kmp", version.ref = "snakeyaml-engine-kmp" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
+kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-engine = { group = "io.kotest", name = "kotest-framework-engine", version.ref = "kotest" }
+kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+spotless-plugin-gradle = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+publish-plugin = { group = "io.github.gradle-nexus", name = "publish-plugin", version.ref = "nexus-publish" }
+reckon-gradle = { group = "org.ajoberstar.reckon", name = "reckon-gradle", version.ref = "reckon" }
+
+[plugins]
+kotest = { id = "io.kotest", version.ref = "kotest" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

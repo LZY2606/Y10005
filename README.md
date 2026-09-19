@@ -223,6 +223,19 @@ kaml uses Gradle for builds and testing:
 * To run the tests and static analysis tools: `./gradlew check`
 * To run the tests and static analysis tools continuously: `./gradlew --continuous check`
 
+### Verifying the build before a release
+
+Run `./gradlew verifyAll` to execute all release-readiness gates in one command. It runs, in order:
+
+1. `spotlessCheck` — code formatting and license header checks
+2. `jvmTest` — the JVM test suite
+3. `checkDependencyManifest` — checks that all dependency coordinates live in `gradle/libs.versions.toml` (no `group:name:version` literals left in `build.gradle.kts` or `buildSrc/build.gradle.kts`), that every alias in the catalog is actually referenced, and that the Kotlin plugin versions in `settings.gradle.kts` match the Kotlin version in the catalog
+4. `checkReproducibleArtifacts` — checks that `jvmJar` and `jvmSourcesJar` are reproducible (all entries share a single fixed timestamp and are sorted by name)
+
+If any gate fails, the build exits with a non-zero exit code and the remaining gates are skipped.
+
+Whether the gates pass or fail, the result of each gate is written to `build/verification/summary.txt` (one `gate=OK|FAIL|SKIP` line per gate, in the order above) and printed to standard output, so CI logs and release automation always have a single place to check.
+
 ## Reference links
 
 * [YAML 1.2 Specification](http://yaml.org/spec/1.2/spec.html)

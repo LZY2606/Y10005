@@ -20,7 +20,7 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            tasks: check
+            tasks: verifyAll
           - os: windows-latest
             tasks: mingwX64Test
           - os: macos-13

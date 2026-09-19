@@ -16,30 +16,12 @@
 
 */
 
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+rootProject.name = "kaml-buildSrc"
 
-plugins {
-    `kotlin-dsl`
-}
-
-repositories {
-    maven("https://plugins.gradle.org/m2/")
-}
-
-dependencies {
-    implementation(libs.spotless.plugin.gradle)
-    implementation(libs.publish.plugin)
-    implementation(libs.reckon.gradle)
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-
-tasks.withType<KotlinCompile> {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_11
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
     }
 }
